@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fruit Fly Traps — Market Analysis Dashboard (UK) 2026-03-17</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+header{background:#0f2942;color:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+header h1{font-size:1.2rem}
+header p{font-size:.75rem;opacity:.65;margin-top:3px}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;gap:2px;position:sticky;top:73px;z-index:99;box-shadow:0 2px 4px rgba(0,0,0,.06)}
+.tab{padding:12px 16px;cursor:pointer;font-size:.83rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;letter-spacing:.01em}
+.tab:hover{color:#1e3a5f}.tab.active{color:#1e3a5f;border-bottom-color:#2563eb}
+.content{padding:22px 32px}
+.panel{display:none}.panel.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.kpi-v{font-size:1.15rem;font-weight:700;color:#0f2942;word-break:break-word;line-height:1.2}
+.kpi-l{font-size:.68rem;color:#64748b;margin-top:4px;line-height:1.3}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:18px}
+.card h3{font-size:.83rem;font-weight:600;color:#475569;margin-bottom:12px}
+.cw{position:relative;height:240px}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+th{background:#f8fafc;text-align:left;padding:6px 7px;font-weight:600;color:#475569;white-space:nowrap;position:sticky;top:0;border-bottom:1px solid #e2e8f0}
+td{padding:5px 7px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+tr:hover td{background:#f8fafc}
+td a{color:#2563eb;text-decoration:none;font-family:monospace;font-size:.72rem}
+td a:hover{text-decoration:underline}
+.tbl-wrap{overflow-x:auto;max-height:460px;overflow-y:auto}
+h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
+.insight{background:#eff6ff;border-left:3px solid #2563eb;padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:14px;font-size:.8rem;color:#1e40af;line-height:1.5}
+.warn{background:#fff7ed;border-left:3px solid #f97316;color:#9a3412}
+.note{font-size:.72rem;color:#64748b;margin-top:10px;padding:9px 11px;background:#f8fafc;border-radius:5px;border-left:2px solid #cbd5e1;line-height:1.5}
+.delta-pos{color:#16a34a;font-weight:600}
+.delta-neg{color:#dc2626;font-weight:600}
+.delta-neu{color:#64748b}
+.leaders-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:18px}
+.leader-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07);border-left:4px solid #2563eb}
+.leader-card h4{font-size:.7rem;color:#64748b;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.leader-card .lc-name{font-size:.9rem;font-weight:700;color:#0f2942}
+.leader-card .lc-val{font-size:.75rem;color:#2563eb;margin-top:2px}
+@media(max-width:600px){.g2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Fruit Fly Traps — Market Analysis Dashboard (UK)</h1>
+    <p>Source: FF-UK-x-ray.csv &nbsp;&middot;&nbsp; Generated: 2026-03-17 &nbsp;&middot;&nbsp; 36 ASINs</p>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('ti',this)">1 — Main Segments (Total Market)</div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════ TAB I ══════════════════════════ -->
+<div id="ti" class="panel active">
+<h2>Segments Analysis</h2>
+
+<div class="insight">
+  <strong>Segment-level view only.</strong> All metrics are aggregated to segment before calculation. Individual ASINs are not shown. 12-month estimates based on 30-day X-Ray data (Mar 2026) &times; 12. 36 ASINs across 4 segments. Currency: GBP (&pound;).
+</div>
+
+<!-- TOTAL CATEGORY KPI -->
+<div id="seg_total_kpi" style="margin-bottom:14px"></div>
+
+<!-- KPI CARDS — one block per segment -->
+<div id="seg_kpi_section" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:22px"></div>
+
+<!-- PIE CHARTS -->
+<div class="g2">
+  <div class="card">
+    <h3>Market Share — Units (12M)</h3>
+    <div id="seg_pie_unit_total" style="font-size:.82rem;color:#64748b;margin:-6px 0 10px"></div>
+    <div class="cw" style="height:320px"><canvas id="segUnitPieChart"></canvas></div>
+    <div class="note">Unit share reflects how many of all segment units each segment accounts for. A dominant segment may indicate strong consumer preference or a mature category.</div>
+  </div>
+  <div class="card">
+    <h3>Market Share — Revenue (12M)</h3>
+    <div id="seg_pie_rev_total" style="font-size:.82rem;color:#64748b;margin:-6px 0 10px"></div>
+    <div class="cw" style="height:320px"><canvas id="segRevPieChart"></canvas></div>
+    <div class="note">Revenue share may differ from unit share when segments operate at different price levels. A segment with a higher revenue share relative to its unit share might suggest premium positioning.</div>
+  </div>
+</div>
+
+<!-- SUMMARY TABLE -->
+<div class="card">
+  <h3>Segment Summary (12M)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>Segment</th>
+        <th style="text-align:right">SKUs</th>
+        <th style="text-align:right">Units (12M)</th>
+        <th style="text-align:right">Revenue (12M)</th>
+        <th style="text-align:right">Avg Price</th>
+        <th style="text-align:right">Unit Share</th>
+        <th style="text-align:right">Rev Share</th>
+      </tr></thead>
+      <tbody id="seg_summary_tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+<!-- END TAB I -->
+
+</div><!-- .content -->
+
+<script>
+// ═══════════════ TAB SWITCHING ════════════════════════════════════════════════
+function show(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  Object.values(Chart.instances).forEach(c => c.resize());
+}
+
+// ═══════════════ TAB I — SEGMENTS ════════════════════════════════════════════
+const SEGMENT_DATA = {
+  "segments": ["Lure", "Sticky Trap", "Electric", "Drain"],
+  "kpis": {
+    "Lure": {
+      "skus": 10,
+      "units_12m": 92124,
+      "revenue_12m": 1072664,
+      "avg_price": 15.41,
+      "unit_share": 22.3,
+      "rev_share": 32.9
+    },
+    "Sticky Trap": {
+      "skus": 15,
+      "units_12m": 307260,
+      "revenue_12m": 1713773,
+      "avg_price": 7.34,
+      "unit_share": 74.2,
+      "rev_share": 52.5
+    },
+    "Electric": {
+      "skus": 6,
+      "units_12m": 4668,
+      "revenue_12m": 150243,
+      "avg_price": 35.15,
+      "unit_share": 1.1,
+      "rev_share": 4.6
+    },
+    "Drain": {
+      "skus": 5,
+      "units_12m": 9900,
+      "revenue_12m": 325062,
+      "avg_price": 72.58,
+      "unit_share": 2.4,
+      "rev_share": 10.0
+    }
+  }
+};
+
+const SEG_COLORS = {
+  'Lure': '#2563eb',
+  'Sticky Trap': '#16a34a',
+  'Electric': '#7c3aed',
+  'Drain': '#d97706'
+};
+
+let _segUnitPie, _segRevPie;
+
+function segInit() {
+  const SD   = SEGMENT_DATA;
+  const segs = SD.segments;
+
+  // ── Total Category KPI ──────────────────────────────────────────────────
+  const totalRev12m   = segs.reduce((sum, s) => sum + SD.kpis[s].revenue_12m, 0);
+  const totalUnits12m = segs.reduce((sum, s) => sum + SD.kpis[s].units_12m, 0);
+
+  document.getElementById('seg_total_kpi').innerHTML = `
+    <div class="card" style="border-left:4px solid #1e293b;padding:14px 20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b;min-width:120px">Total Category</div>
+      <div>
+        <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">&pound;${(totalRev12m/1e6).toFixed(1)}M</div>
+        <div style="font-size:.75rem;color:#64748b;margin-top:3px">Revenue &middot; Last 12M estimate (30d &times; 12)</div>
+      </div>
+      <div>
+        <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">${(totalUnits12m/1000).toFixed(0)}K</div>
+        <div style="font-size:.75rem;color:#64748b;margin-top:3px">Units &middot; Last 12M estimate</div>
+      </div>
+    </div>`;
+
+  // ── KPI blocks ──────────────────────────────────────────────────────────
+  const SEG_BRANDS = {
+    'Lure':        ['Super Ninja', 'Zero In'],
+    'Sticky Trap': ['Blooven', 'aonova', 'Super Ninja', 'TRIITECH', 'BBLIKE'],
+    'Electric':    ['GeckoMan', 'VEYOFLY', 'Senelux'],
+    'Drain':       ['Eco Strong']
+  };
+
+  document.getElementById('seg_kpi_section').innerHTML = segs.map(s => {
+    const k = SD.kpis[s], c = SEG_COLORS[s];
+    const brands = SEG_BRANDS[s] || [];
+    const brandsHtml = brands.length
+      ? `<div style="font-size:.68rem;color:#94a3b8;margin-top:8px;border-top:1px solid #f1f5f9;padding-top:6px"><span style="font-weight:600;color:#64748b">Top brands:</span> ${brands.join(' &middot; ')}</div>`
+      : '';
+    return `<div class="card" style="border-left:4px solid ${c};padding:14px 16px">
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:${c};margin-bottom:10px">${s}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+        <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+          <div class="kpi-v" style="font-size:.95rem">${k.units_12m>=1e6?(k.units_12m/1e6).toFixed(1)+'M':(k.units_12m/1000).toFixed(1)+'K'}</div>
+          <div class="kpi-l">Units sold (12M)</div>
+        </div>
+        <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+          <div class="kpi-v" style="font-size:.95rem">&pound;${k.revenue_12m>=1e6?(k.revenue_12m/1e6).toFixed(1)+'M':(k.revenue_12m/1000).toFixed(0)+'K'}</div>
+          <div class="kpi-l">Segment Value (12M)</div>
+        </div>
+      </div>
+      ${brandsHtml}
+    </div>`;
+  }).join('');
+
+  // ── Pie chart totals ─────────────────────────────────────────────────────
+  document.getElementById('seg_pie_unit_total').textContent = 'Total: ' + totalUnits12m.toLocaleString() + ' units';
+  document.getElementById('seg_pie_rev_total').textContent  = 'Total: \u00A3' + (totalRev12m / 1e6).toFixed(1) + 'M (\u00A3' + Math.round(totalRev12m).toLocaleString() + ')';
+
+  // ── Pie charts ───────────────────────────────────────────────────────────
+  const colors = segs.map(s => SEG_COLORS[s]);
+
+  const pieLinePlugin = {
+    id: 'pieLinePlugin',
+    afterDatasetsDraw(chart) {
+      const total = chart.data.datasets[0].data.reduce((a,b) => a+b, 0);
+      const ctx2 = chart.ctx;
+      chart.getDatasetMeta(0).data.forEach((arc, i) => {
+        const v = chart.data.datasets[0].data[i];
+        if (v / total >= 0.10) return;
+        const mid = (arc.startAngle + arc.endAngle) / 2;
+        const r = arc.outerRadius;
+        ctx2.save();
+        ctx2.strokeStyle = chart.data.datasets[0].backgroundColor[i];
+        ctx2.lineWidth = 1.5;
+        ctx2.beginPath();
+        ctx2.moveTo(arc.x + Math.cos(mid) * (r + 2), arc.y + Math.sin(mid) * (r + 2));
+        ctx2.lineTo(arc.x + Math.cos(mid) * (r + 20), arc.y + Math.sin(mid) * (r + 20));
+        ctx2.stroke();
+        ctx2.restore();
+      });
+    }
+  };
+
+  const _piePct = (v, ctx) => {
+    const t = ctx.chart.data.datasets[0].data.reduce((a,b) => a+b, 0);
+    return t > 0 ? Math.round(v / t * 100) : 0;
+  };
+  const pieFmtUnits = (v, ctx) => {
+    const k = SD.kpis[segs[ctx.dataIndex]];
+    const units = k.units_12m >= 1e6 ? (k.units_12m / 1e6).toFixed(1) + 'M' : (k.units_12m / 1000).toFixed(1) + 'K';
+    return _piePct(v, ctx) + '%\n' + units + ' units';
+  };
+  const pieFmtRev = (v, ctx) => {
+    const k = SD.kpis[segs[ctx.dataIndex]];
+    return _piePct(v, ctx) + '%\n\u00A3' + (k.revenue_12m >= 1e6 ? (k.revenue_12m / 1e6).toFixed(1) + 'M' : (k.revenue_12m / 1000).toFixed(0) + 'K');
+  };
+  const pieIsSmall = (ctx) => ctx.dataset.data[ctx.dataIndex] / ctx.dataset.data.reduce((a,b) => a+b, 0) < 0.10;
+  const pieOpts = (pos, fmt) => ({
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: pos, labels: { font: { size: 11 }, boxWidth: 14 } },
+      datalabels: {
+        formatter: fmt,
+        anchor: (ctx) => pieIsSmall(ctx) ? 'end' : 'center',
+        align:  (ctx) => pieIsSmall(ctx) ? 'end' : 'center',
+        color:  (ctx) => pieIsSmall(ctx) ? '#1e293b' : '#fff',
+        offset: (ctx) => pieIsSmall(ctx) ? 22 : 0,
+        font: { weight: 'bold', size: 13 },
+        textAlign: 'center'
+      }
+    }
+  });
+
+  if (_segUnitPie) _segUnitPie.destroy();
+  _segUnitPie = new Chart(document.getElementById('segUnitPieChart'), {
+    type: 'pie', plugins: [ChartDataLabels, pieLinePlugin],
+    data: { labels: segs, datasets: [{ data: segs.map(s => SD.kpis[s].units_12m), backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }] },
+    options: pieOpts('right', pieFmtUnits)
+  });
+
+  if (_segRevPie) _segRevPie.destroy();
+  _segRevPie = new Chart(document.getElementById('segRevPieChart'), {
+    type: 'pie', plugins: [ChartDataLabels, pieLinePlugin],
+    data: { labels: segs, datasets: [{ data: segs.map(s => SD.kpis[s].revenue_12m), backgroundColor: colors, borderWidth: 2, borderColor: '#fff' }] },
+    options: pieOpts('right', pieFmtRev)
+  });
+
+  // ── Summary Table ──────────────────────────────────────────────────────
+  document.getElementById('seg_summary_tbody').innerHTML = segs.map(s => {
+    const k = SD.kpis[s];
+    return `<tr>
+      <td style="font-weight:600"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${SEG_COLORS[s]};margin-right:6px;vertical-align:middle"></span>${s}</td>
+      <td style="text-align:right">${k.skus}</td>
+      <td style="text-align:right">${k.units_12m.toLocaleString()}</td>
+      <td style="text-align:right">&pound;${k.revenue_12m >= 1e6 ? (k.revenue_12m / 1e6).toFixed(1) + 'M' : (k.revenue_12m / 1000).toFixed(0) + 'K'}</td>
+      <td style="text-align:right">&pound;${k.avg_price.toFixed(2)}</td>
+      <td style="text-align:right">${k.unit_share.toFixed(1)}%</td>
+      <td style="text-align:right">${k.rev_share.toFixed(1)}%</td>
+    </tr>`;
+  }).join('') + `<tr style="font-weight:700;border-top:2px solid #e2e8f0">
+    <td>Total</td>
+    <td style="text-align:right">${segs.reduce((s,seg)=>s+SD.kpis[seg].skus,0)}</td>
+    <td style="text-align:right">${totalUnits12m.toLocaleString()}</td>
+    <td style="text-align:right">&pound;${(totalRev12m/1e6).toFixed(1)}M</td>
+    <td style="text-align:right">—</td>
+    <td style="text-align:right">100%</td>
+    <td style="text-align:right">100%</td>
+  </tr>`;
+}
+
+segInit();
+</script>
+</body>
+</html>
