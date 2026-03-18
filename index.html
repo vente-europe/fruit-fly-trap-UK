@@ -46,6 +46,10 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .leader-card .lc-val{font-size:.75rem;color:#2563eb;margin-top:2px}
 @media(max-width:600px){.g2{grid-template-columns:1fr}}
 
+/* ═══ Market Structure Tab Styles ═══ */
+.num-right th:not(:first-child),.num-right td:not(:first-child){text-align:right}
+.th-sort{cursor:pointer;user-select:none}
+
 /* ═══ Reviews VOC Tab Styles ═══ */
 .sub-tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;gap:2px;position:sticky;top:115px;z-index:98}
 .sub-tab{padding:10px 18px;cursor:pointer;font-size:.8rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
@@ -135,6 +139,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="tabs">
   <div class="tab active" onclick="show('ti',this)">1 — Main Segments (Total Market)</div>
   <div class="tab" onclick="show('tii',this)">2 — Reviews VOC</div>
+  <div class="tab" onclick="show('tiii',this)">3 — Market Structure (Lure)</div>
 </div>
 
 <div class="content">
@@ -467,6 +472,224 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 </div>
 <!-- END TAB II -->
+
+<!-- ═══════════════════════════════════════ TAB III — Market Structure (Lure) ══════════════════════════ -->
+<div id="tiii" class="panel">
+<h2>Market Structure — Lure Segment</h2>
+
+<div class="insight">
+  <strong>Lure segment deep-dive.</strong> 10 ASINs, 2 brands (Super Ninja, Zero In). All figures are 12M estimates (30-day × 12). Currency: GBP (£). Super Ninja dominates with 87.4% revenue share — this is effectively a single-brand segment.
+</div>
+
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">35.6%</div><div class="kpi-l">Top 1 ASIN Revenue Share</div></div>
+  <div class="kpi"><div class="kpi-v">77.5%</div><div class="kpi-l">Top 3 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">88.8%</div><div class="kpi-l">Top 5 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">100%</div><div class="kpi-l">Top 10 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">87.4%</div><div class="kpi-l">Top Brand Share (Super Ninja)</div></div>
+  <div class="kpi"><div class="kpi-v">£1.07M</div><div class="kpi-l">Total Lure Rev (12M)</div></div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Pack Size — Unit Share (Lure, 12M)</h3>
+    <div class="cw" style="height:300px"><canvas id="msPackUnitPie"></canvas></div>
+    <div class="note">Units sold by pack size. 2-pack dominates with 59.8% of volume.</div>
+  </div>
+  <div class="card">
+    <h3>Pack Size — Revenue Share (Lure, 12M)</h3>
+    <div class="cw" style="height:300px"><canvas id="msPackRevPie"></canvas></div>
+    <div class="note">Revenue by pack size. 2-pack leads at 46.0%, 4-pack #2 at 30.5%.</div>
+  </div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Brand Units Share — Lure (12M)</h3>
+    <div class="cw" style="height:340px"><canvas id="msBrandUnitPie"></canvas></div>
+    <div class="note">Unit distribution among Lure brands (12M). Super Ninja leads at 78.7%, Zero In #2 at 21.3%.</div>
+  </div>
+  <div class="card">
+    <h3>Brand Revenue Share — Lure (12M)</h3>
+    <div class="cw" style="height:340px"><canvas id="msBrandRevPie"></canvas></div>
+    <div class="note">Revenue distribution among Lure brands (12M). Super Ninja dominates at 87.4%. Zero In underperforms on revenue (12.6%) vs units (21.3%) — lower price points.</div>
+  </div>
+</div>
+
+<!-- PACK SIZE × BRAND SHARE PIES — UNITS -->
+<div class="card">
+  <h3>Brand Share by Pack Size — Lure (Units, 12M)</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">1-pack &middot; 8.3K units</p>
+      <div class="cw" style="height:260px"><canvas id="msPkBrand1"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">2-pack &middot; 55.1K units</p>
+      <div class="cw" style="height:260px"><canvas id="msPkBrand2"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">4-pack &middot; 20.7K units</p>
+      <div class="cw" style="height:260px"><canvas id="msPkBrand4"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Brand unit share within each pack size. Lure segment only, 12M. 6-pack and 12-pack are 100% Super Ninja (not shown separately).</div>
+</div>
+
+<div id="ms_insights" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px"></div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Price Positioning — Brands per Pack Size</h3>
+    <div class="cw" style="height:320px"><canvas id="msPriceChart"></canvas></div>
+    <div class="note">Avg price = ASIN listed price. Shows Super Ninja vs Zero In pricing across pack sizes.</div>
+  </div>
+  <div class="card">
+    <h3>Price vs Unit Share (Bubble = Revenue)</h3>
+    <div class="cw" style="height:320px"><canvas id="msScatterChart"></canvas></div>
+    <div class="note">Bubble size proportional to 12M revenue. Each point = one brand in one pack size. Hover for details.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Full Competitive Breakdown — Pack Size
+    <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Click column to sort</span>
+  </h3>
+  <div class="tbl-wrap">
+    <table id="msPscTable" class="num-right">
+      <thead><tr>
+        <th>Pack Size</th>
+        <th>Brand</th>
+        <th class="th-sort" onclick="sortMsTbl('msPscTable',2,this)" data-asc="">Unit Share ▽</th>
+        <th class="th-sort" onclick="sortMsTbl('msPscTable',3,this)" data-asc="">Value Share ▽</th>
+        <th class="th-sort" onclick="sortMsTbl('msPscTable',4,this)" data-asc="">Avg Price ▽</th>
+        <th class="th-sort" onclick="sortMsTbl('msPscTable',5,this)" data-asc="">Units 12M ▽</th>
+        <th class="th-sort" onclick="sortMsTbl('msPscTable',6,this)" data-asc="">Revenue 12M ▽</th>
+      </tr></thead>
+      <tbody id="msPscTableBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Brand Summary — Lure (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right">
+    <thead><tr><th>Brand</th><th>Rev (12M)</th><th>Share</th><th>ASINs</th><th>Avg Price</th><th>Avg Rating</th><th>Total Reviews</th></tr></thead>
+    <tbody>
+    <tr><td>Super Ninja</td><td>£937,289</td><td>87.4%</td><td>6</td><td>£19.72</td><td>3.9</td><td>21,147</td></tr>
+    <tr><td>Zero In</td><td>£135,376</td><td>12.6%</td><td>4</td><td>£8.95</td><td>4.0</td><td>21,329</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card">
+  <h3>Lure ASINs — All 10 by Revenue
+    <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Click Price or Rev (12M) to sort</span>
+  </h3>
+  <div class="tbl-wrap"><table id="msLureTable">
+    <thead><tr>
+      <th>ASIN</th><th>Brand</th><th>Title</th><th>Pack</th>
+      <th class="th-sort" onclick="sortMsTbl('msLureTable',4,this)">Price &#9661;</th>
+      <th class="th-sort" onclick="sortMsTbl('msLureTable',5,this)">Rev (12M) &#9661;</th>
+      <th>BSR</th><th>Reviews</th><th>Rating</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B0963J155G" target="_blank">B0963J155G</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Trap - 2 pack">Super Ninja Fruit Fly Trap — 2 pack</span></td>
+      <td>2</td>
+      <td data-val="9.84">£9.84</td>
+      <td data-val="382075">£382,075</td>
+      <td>78</td><td>21,146</td><td>3.8</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B09SLX6GQS" target="_blank">B09SLX6GQS</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Trap - 4 pack">Super Ninja Fruit Fly Trap — 4 pack</span></td>
+      <td>4</td>
+      <td data-val="15.76">£15.76</td>
+      <td data-val="303904">£303,904</td>
+      <td>116</td><td>15,950</td><td>3.9</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B0DVBKLWTL" target="_blank">B0DVBKLWTL</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Trap - 6 pack">Super Ninja Fruit Fly Trap — 6 pack</span></td>
+      <td>6</td>
+      <td data-val="25.49">£25.49</td>
+      <td data-val="145261">£145,261</td>
+      <td>78</td><td>21,147</td><td>3.8</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B00VAGK1RU" target="_blank">B00VAGK1RU</a></td>
+      <td>Zero In</td>
+      <td><span title="Zero In Outdoor Fly Trap - Ready-Baited Fly Catcher, Twin Pack">Zero In Outdoor Fly Trap — Twin Pack</span></td>
+      <td>2</td>
+      <td data-val="10.71">£10.71</td>
+      <td data-val="65003">£65,003</td>
+      <td>274</td><td>21,329</td><td>4.3</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B0C6M6DB5H" target="_blank">B0C6M6DB5H</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Trap - 12 pack">Super Ninja Fruit Fly Trap — 12 pack</span></td>
+      <td>12</td>
+      <td data-val="44.05">£44.05</td>
+      <td data-val="56021">£56,021</td>
+      <td>78</td><td>21,147</td><td>3.8</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B089MB7VFZ" target="_blank">B089MB7VFZ</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Trap - 1 pack">Super Ninja Fruit Fly Trap — 1 pack</span></td>
+      <td>1</td>
+      <td data-val="8.10">£8.10</td>
+      <td data-val="37552">£37,552</td>
+      <td>116</td><td>15,950</td><td>3.9</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B09NWBRKND" target="_blank">B09NWBRKND</a></td>
+      <td>Zero In</td>
+      <td><span title="Zero In Fruit Fly Trap - Apple-Shaped Twin Pack">Zero In Fruit Fly Trap — Apple Twin Pack</span></td>
+      <td>2</td>
+      <td data-val="3.75">£3.75</td>
+      <td data-val="33865">£33,865</td>
+      <td>1,226</td><td>738</td><td>3.0</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B0C65YHB4D" target="_blank">B0C65YHB4D</a></td>
+      <td>Zero In</td>
+      <td><span title="Zero In Outdoor Fly Trap - Multi Pack X2">Zero In Outdoor Fly Trap — Multi Pack X2</span></td>
+      <td>4</td>
+      <td data-val="17.39">£17.39</td>
+      <td data-val="22870">£22,870</td>
+      <td>274</td><td>21,329</td><td>4.3</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B014MI6CXE" target="_blank">B014MI6CXE</a></td>
+      <td>Zero In</td>
+      <td><span title="Zero In Honeypot Wasp Trap Bait Refill 3 Pack">Zero In Honeypot Wasp Trap Bait Refill</span></td>
+      <td>1</td>
+      <td data-val="3.93">£3.93</td>
+      <td data-val="13638">£13,638</td>
+      <td>273</td><td>21,329</td><td>4.3</td>
+    </tr>
+    <tr>
+      <td><a href="https://amazon.co.uk/dp/B0DWTY51S5" target="_blank">B0DWTY51S5</a></td>
+      <td>Super Ninja</td>
+      <td><span title="Super Ninja Fruit Fly Trap & Fungus Gnat Combo – 2 Pack">Super Ninja Combo — 2 Fly + 10 Gnats</span></td>
+      <td>2</td>
+      <td data-val="15.06">£15.06</td>
+      <td data-val="12476">£12,476</td>
+      <td>71</td><td>9,276</td><td>4.2</td>
+    </tr>
+    </tbody>
+  </table></div>
+</div>
+
+</div>
+<!-- END TAB III -->
 
 </div><!-- .content -->
 
@@ -819,6 +1042,237 @@ function vocClearFilters() {
 
 // Init review browser on load
 vocFilterReviews();
+
+// ═══════════════ TAB III — MARKET STRUCTURE (LURE) ═══════════════════════════
+
+(function() {
+  var C10 = ['#2563eb','#16a34a','#dc2626','#d97706','#7c3aed','#0891b2','#be185d','#65a30d','#ea580c','#1d4ed8'];
+  var MS_COLORS = { 'Super Ninja': '#7c3aed', 'Zero In': '#2563eb' };
+
+  // ── Pack Size Pies (Lure, 12M) ──
+  var PACK_LABELS = ['2-pack','4-pack','6-pack','1-pack','12-pack'];
+  var PACK_UNITS  = [55080, 20700, 6612, 8256, 1476];
+  var PACK_REV    = [493419, 326774, 145261, 51190, 56021];
+  var PACK_COLORS = ['#2563eb','#16a34a','#d97706','#7c3aed','#0891b2'];
+
+  function makePackPie(canvasId, data, total, fmtVal, fmtTt) {
+    new Chart(document.getElementById(canvasId), {
+      type: 'pie', plugins: [ChartDataLabels],
+      data: { labels: PACK_LABELS, datasets: [{ data: data, backgroundColor: PACK_COLORS }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 10, left: 10, right: 10, bottom: 10 } },
+        plugins: {
+          legend: { display: true, position: 'left', labels: { font: { size: 11 }, boxWidth: 12, padding: 10,
+            generateLabels: function(chart) {
+              var ds = chart.data.datasets[0].data;
+              return PACK_LABELS.map(function(lbl, i) {
+                return { text: lbl + ' — ' + fmtVal(ds[i]) + ' (' + Math.round(ds[i]/total*100) + '%)',
+                  fillStyle: PACK_COLORS[i], strokeStyle: PACK_COLORS[i], lineWidth: 0, hidden: false, index: i };
+              });
+            }
+          }},
+          datalabels: { formatter: function(v, ctx) { var pct = Math.round(v/total*100); return pct >= 5 ? PACK_LABELS[ctx.dataIndex]+'\n'+pct+'%' : null; }, color:'#fff', font:{weight:'bold',size:11}, textAlign:'center' },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.label+': '+fmtTt(ctx.raw)+' ('+(ctx.raw/total*100).toFixed(1)+'%)'; } } }
+        }
+      }
+    });
+  }
+  var totalPU = PACK_UNITS.reduce(function(a,b){return a+b},0);
+  var totalPR = PACK_REV.reduce(function(a,b){return a+b},0);
+  makePackPie('msPackUnitPie', PACK_UNITS, totalPU, function(v){return (v/1000).toFixed(1)+'K';}, function(v){return v.toLocaleString()+' units';});
+  makePackPie('msPackRevPie', PACK_REV, totalPR, function(v){return '£'+(v/1000).toFixed(0)+'K';}, function(v){return '£'+v.toLocaleString();});
+
+  // ── Brand Pies ──
+  var BRAND_LABELS = ['Super Ninja','Zero In'];
+  var BRAND_UNITS = [72456, 19668];
+  var BRAND_REV = [937289, 135376];
+  var BRAND_COLORS = ['#7c3aed','#2563eb'];
+
+  function makeBrandPie(canvasId, rawData, total, fmtDl, fmtTt) {
+    new Chart(document.getElementById(canvasId), {
+      type: 'pie', plugins: [ChartDataLabels],
+      data: { labels: BRAND_LABELS, datasets: [{ data: rawData, backgroundColor: BRAND_COLORS }] },
+      options: {
+        maintainAspectRatio: false,
+        layout: { padding: { top: 10, left: 10, right: 10, bottom: 10 } },
+        plugins: {
+          legend: { display: true, position: 'left', labels: { font: { size: 11 }, boxWidth: 12, padding: 10,
+            generateLabels: function(chart) {
+              var ds = chart.data.datasets[0].data;
+              return BRAND_LABELS.map(function(lbl, i) {
+                return { text: lbl+' — '+fmtDl(ds[i])+' ('+Math.round(ds[i]/total*100)+'%)',
+                  fillStyle: BRAND_COLORS[i], strokeStyle: BRAND_COLORS[i], lineWidth: 0, hidden: false, index: i };
+              });
+            }
+          }},
+          datalabels: { formatter: function(v, ctx) { var pct = Math.round(v/total*100); return BRAND_LABELS[ctx.dataIndex]+'\n'+fmtDl(v)+'\n('+pct+'%)'; }, color:'#fff', font:{weight:'bold',size:11}, textAlign:'center' },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.label+': '+fmtTt(ctx.raw)+' ('+(ctx.raw/total*100).toFixed(1)+'%)'; } } }
+        }
+      }
+    });
+  }
+  var totalBU = BRAND_UNITS.reduce(function(a,b){return a+b},0);
+  var totalBR = BRAND_REV.reduce(function(a,b){return a+b},0);
+  makeBrandPie('msBrandUnitPie', BRAND_UNITS, totalBU, function(v){return (v/1000).toFixed(1)+'K';}, function(v){return v.toLocaleString()+' units';});
+  makeBrandPie('msBrandRevPie', BRAND_REV, totalBR, function(v){return '£'+(v/1000).toFixed(0)+'K';}, function(v){return '£'+v.toLocaleString();});
+
+  // ── Pack × Brand Pies ──
+  function makePkBrandPie(canvasId, labels, data) {
+    var colors = labels.map(function(l){return MS_COLORS[l]||'#94a3b8';});
+    var total = data.reduce(function(a,b){return a+b;},0);
+    new Chart(document.getElementById(canvasId), {
+      type: 'pie', plugins: [ChartDataLabels],
+      data: { labels: labels, datasets: [{ data: data, backgroundColor: colors }] },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 10, padding: 8,
+            generateLabels: function(chart) {
+              var ds = chart.data.datasets[0].data;
+              return labels.map(function(lbl, i) {
+                return { text: lbl+' '+Math.round(ds[i]/total*100)+'% ('+Math.round(ds[i]).toLocaleString()+')',
+                  fillStyle: colors[i], strokeStyle: colors[i], lineWidth: 0, hidden: false, index: i };
+              });
+            }
+          }},
+          datalabels: { display: function(ctx){return ctx.dataset.data[ctx.dataIndex]/total>=0.05;},
+            formatter: function(v,ctx){return labels[ctx.dataIndex]+'\n'+Math.round(v/total*100)+'%';},
+            color:'#fff', font:{weight:'bold',size:10}, textAlign:'center' },
+          tooltip: { callbacks: { label: function(ctx){return ctx.label+': '+ctx.raw.toLocaleString()+' ('+(ctx.raw/total*100).toFixed(1)+'%)';} } }
+        }
+      }
+    });
+  }
+  makePkBrandPie('msPkBrand1', ['Super Ninja','Zero In'], [5376, 2880]);
+  makePkBrandPie('msPkBrand2', ['Super Ninja','Zero In'], [39744, 15336]);
+  makePkBrandPie('msPkBrand4', ['Super Ninja','Zero In'], [19248, 1452]);
+
+  // ── Insights ──
+  var insEl = document.getElementById('ms_insights');
+  if (insEl) {
+    insEl.innerHTML = [
+      { title: 'Super Ninja Dominance', text: 'Super Ninja controls 87.4% of Lure revenue with 6 ASINs covering all pack sizes (1/2/4/6/12). Zero In\'s 4 ASINs are positioned at budget price points (£3.75–£17.39).' },
+      { title: '2-pack is the Entry Point', text: '2-pack accounts for 59.8% of units — the default consumer choice. Super Ninja\'s 2-pack (£9.84) is the #1 ASIN with 35.6% of total Lure revenue.' },
+      { title: 'Price Ladder Gap', text: 'Between Zero In\'s budget 2-pack (£3.75) and Super Ninja\'s 2-pack (£9.84) there\'s a £6 gap. No competitor fills the £5–£8 range for 2-packs.' },
+      { title: 'Zero In\'s Weakness', text: 'Zero In has 21.3% unit share but only 12.6% revenue share — priced too low to capture value. Their apple-shaped trap (£3.75) has only 3.0★ rating vs Super Ninja\'s 3.8–3.9★.' }
+    ].map(function(ins){return '<div class="insight"><strong>'+ins.title+':</strong> '+ins.text+'</div>';}).join('');
+  }
+
+  // ── Price Positioning Bar Chart ──
+  var PSC_RAW = {
+    '1-pack': [{ brand:'Super Ninja', units:5376, revenue:37552 }, { brand:'Zero In', units:2880, revenue:13638 }],
+    '2-pack': [{ brand:'Super Ninja', units:39744, revenue:394551 }, { brand:'Zero In', units:15336, revenue:98868 }],
+    '4-pack': [{ brand:'Super Ninja', units:19248, revenue:303904 }, { brand:'Zero In', units:1452, revenue:22870 }]
+  };
+  var PACK_SIZES = ['1-pack','2-pack','4-pack'];
+  var ALL_BRANDS_MS = ['Super Ninja','Zero In'];
+
+  function enrichPack(packSize) {
+    var rows = PSC_RAW[packSize];
+    var totalU = rows.reduce(function(s,r){return s+r.units;},0);
+    var totalR = rows.reduce(function(s,r){return s+r.revenue;},0);
+    return rows.map(function(r){
+      return { pack_size:packSize, brand:r.brand, units:r.units, revenue:r.revenue,
+        unit_share: r.units/totalU, value_share: r.revenue/totalR, avg_price: r.revenue/r.units };
+    });
+  }
+  var ALL_ROWS_MS = PACK_SIZES.reduce(function(arr,p){return arr.concat(enrichPack(p));}, []);
+
+  // Also add 6-pack and 12-pack (Super Ninja only)
+  ALL_ROWS_MS.push({ pack_size:'6-pack', brand:'Super Ninja', units:6612, revenue:145261, unit_share:1, value_share:1, avg_price:25.49 });
+  ALL_ROWS_MS.push({ pack_size:'12-pack', brand:'Super Ninja', units:1476, revenue:56021, unit_share:1, value_share:1, avg_price:44.05 });
+
+  new Chart(document.getElementById('msPriceChart'), {
+    type: 'bar', plugins: [ChartDataLabels],
+    data: {
+      labels: ['1-pack','2-pack','4-pack','6-pack','12-pack'],
+      datasets: ALL_BRANDS_MS.map(function(brand) {
+        return {
+          label: brand,
+          backgroundColor: MS_COLORS[brand],
+          data: ['1-pack','2-pack','4-pack','6-pack','12-pack'].map(function(ps) {
+            var row = ALL_ROWS_MS.filter(function(r){return r.pack_size===ps && r.brand===brand;})[0];
+            return row ? Math.round(row.avg_price*100)/100 : null;
+          })
+        };
+      })
+    },
+    options: {
+      maintainAspectRatio: false,
+      layout: { padding: { top: 28 } },
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 12, padding: 10 } },
+        datalabels: { display: function(ctx){return ctx.raw!=null;}, formatter: function(v){return v!=null?'£'+v.toFixed(2):'';}, anchor:'end', align:'end', offset:2, color:'#1e293b', font:{size:10,weight:'bold'} },
+        tooltip: { callbacks: { label: function(ctx){return ctx.raw!=null?ctx.dataset.label+': £'+ctx.raw.toFixed(2):'';} } }
+      },
+      scales: {
+        x: { ticks: { font: { size: 11 } } },
+        y: { ticks: { callback: function(v){return '£'+v.toFixed(0);} }, title: { display:true, text:'Avg Price (£)', font:{size:10} } }
+      }
+    }
+  });
+
+  // ── Bubble Chart — Price vs Unit Share ──
+  var scatterRows = ALL_ROWS_MS;
+  var maxRev = Math.max.apply(null, scatterRows.map(function(r){return r.revenue;}));
+  function scaleR(rev) { return Math.max(5, Math.sqrt(rev/maxRev)*28); }
+
+  new Chart(document.getElementById('msScatterChart'), {
+    type: 'bubble',
+    data: {
+      datasets: ALL_BRANDS_MS.map(function(brand) {
+        var pts = scatterRows.filter(function(r){return r.brand===brand;}).map(function(r){
+          return { x: Math.round(r.avg_price*100)/100, y: Math.round(r.unit_share*1000)/10, r: Math.round(scaleR(r.revenue)), pack_size: r.pack_size, revenue: r.revenue };
+        });
+        return { label: brand, data: pts, backgroundColor: (MS_COLORS[brand]||'#94a3b8')+'aa', borderColor: MS_COLORS[brand]||'#94a3b8', borderWidth: 1.5 };
+      }).filter(function(ds){return ds.data.length>0;})
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 10, padding: 8 } },
+        datalabels: { display: false },
+        tooltip: { callbacks: { label: function(ctx) {
+          var p = ctx.raw;
+          return [ctx.dataset.label+' · '+p.pack_size, 'Avg Price: £'+p.x.toFixed(2), 'Unit Share: '+p.y.toFixed(1)+'%', 'Revenue: £'+(p.revenue/1000).toFixed(0)+'K'];
+        }}}
+      },
+      scales: {
+        x: { title: { display:true, text:'Avg Price (£)', font:{size:10} }, ticks: { callback: function(v){return '£'+v;} } },
+        y: { title: { display:true, text:'Unit Share (%)', font:{size:10} }, ticks: { callback: function(v){return v+'%';} } }
+      }
+    }
+  });
+
+  // ── Competitive Breakdown Table ──
+  document.getElementById('msPscTableBody').innerHTML = ALL_ROWS_MS.map(function(r) {
+    var dot = '<span style="display:inline-block;width:9px;height:9px;border-radius:2px;background:'+(MS_COLORS[r.brand]||'#94a3b8')+';margin-right:6px;vertical-align:middle"></span>';
+    return '<tr><td>'+r.pack_size+'</td><td>'+dot+r.brand+'</td>'+
+      '<td data-val="'+r.unit_share+'">'+(r.unit_share*100).toFixed(1)+'%</td>'+
+      '<td data-val="'+r.value_share+'">'+(r.value_share*100).toFixed(1)+'%</td>'+
+      '<td data-val="'+r.avg_price+'">£'+r.avg_price.toFixed(2)+'</td>'+
+      '<td data-val="'+r.units+'">'+r.units.toLocaleString()+'</td>'+
+      '<td data-val="'+r.revenue+'">£'+(r.revenue/1000).toFixed(0)+'K</td></tr>';
+  }).join('');
+})();
+
+// ── Sortable table for Market Structure ──
+function sortMsTbl(tableId, col, th) {
+  var tbl = document.getElementById(tableId);
+  var tbody = tbl.tBodies[0];
+  var rows = Array.from(tbody.rows);
+  var asc = th.dataset.asc === '1';
+  rows.sort(function(a, b) {
+    var av = parseFloat(a.cells[col].dataset.val) || 0;
+    var bv = parseFloat(b.cells[col].dataset.val) || 0;
+    return asc ? av - bv : bv - av;
+  });
+  rows.forEach(function(r) { tbody.appendChild(r); });
+  tbl.querySelectorAll('.th-sort').forEach(function(h) { h.dataset.asc = ''; });
+  th.dataset.asc = asc ? '0' : '1';
+}
+
 </script>
 </body>
 </html>

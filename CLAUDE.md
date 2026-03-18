@@ -28,10 +28,20 @@ Amazon UK market analysis dashboard for fruit fly traps category.
 
 ## Tabs
 1. **Main Segments (Total Market)** — segment KPIs, pie charts, summary table
+2. **Reviews VOC** — 1,159 reviews across 3 ASINs. Customer Insights (profile, usage, sentiment, motivation, expectations) + Review Browser with filters
+
+## Reviews Tab
+- Uses data-driven template pattern from `projects/Dashboards/tab_templates/tabs/reviews-voc.html`
+- Only `VOC_DATA` block was customised — rendering engine is standard template code
+- Reviews embedded inline (not fetched) for local `file://` compatibility
+- Source: `Data/reviews/UK-FF-Reviews.json` (1,159 reviews, 3 ASINs)
+- Tagged reviews for browser: `Data/reviews/reviews-browser.json`
 
 ## Key Files
 - `index.html` — dashboard (root)
 - `Data/x-ray/FF-UK-x-ray.csv` — source data
+- `Data/reviews/UK-FF-Reviews.json` — raw reviews (JSON, keyed by ASIN)
+- `Data/reviews/reviews-browser.json` — tagged reviews for browser
 
 ## Self-Update Rule
 Update this file after every bug fix, new tab, or data pattern discovered.
