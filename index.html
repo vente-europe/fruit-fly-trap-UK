@@ -138,8 +138,8 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 <div class="tabs">
   <div class="tab active" onclick="show('ti',this)">1 — Main Segments (Total Market)</div>
-  <div class="tab" onclick="show('tii',this)">2 — Reviews VOC</div>
-  <div class="tab" onclick="show('tiii',this)">3 — Market Structure (Lure)</div>
+  <div class="tab" onclick="show('tiii',this)">2 — Market Structure (Lure)</div>
+  <div class="tab" onclick="show('tii',this)">3 — Reviews VOC</div>
 </div>
 
 <div class="content">
@@ -686,6 +686,23 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     </tr>
     </tbody>
   </table></div>
+</div>
+
+<!-- SEASONALITY INDEX -->
+<div class="card">
+  <h3>Seasonality Index — Lure Segment</h3>
+  <div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr));margin-bottom:14px">
+    <div class="kpi"><div class="kpi-v">Jul</div><div class="kpi-l">Peak (index 3.67)</div></div>
+    <div class="kpi"><div class="kpi-v">Mar</div><div class="kpi-l">Trough (index 0.12)</div></div>
+    <div class="kpi"><div class="kpi-v">30.6&times;</div><div class="kpi-l">Peak / Trough Ratio</div></div>
+    <div class="kpi"><div class="kpi-v">14.7%</div><div class="kpi-l">Revenue from listings &lt;12mo</div></div>
+  </div>
+  <div style="font-size:.78rem;font-weight:600;color:#475569;margin-bottom:8px">
+    Monthly Seasonality Index (1.0 = average month)
+    &nbsp;&nbsp;<span style="color:#16a34a">&#9632; Peak</span>&nbsp;&nbsp;<span style="color:#dc2626">&#9632; Trough</span>
+  </div>
+  <div class="cw" style="height:260px"><canvas id="msSeasonChart"></canvas></div>
+  <div class="note">Lure segment only. Index 1.0 = typical month. &gt;1.0 = sales above average, &lt;1.0 = below. Helps plan product launch timing and PPC budget allocation throughout the year. Based on daily sales data for 5 tracked ASINs over 2 years.</div>
 </div>
 
 </div>
@@ -1255,6 +1272,28 @@ vocFilterReviews();
       '<td data-val="'+r.units+'">'+r.units.toLocaleString()+'</td>'+
       '<td data-val="'+r.revenue+'">£'+(r.revenue/1000).toFixed(0)+'K</td></tr>';
   }).join('');
+})();
+
+// ── Seasonality Index Chart ──
+(function() {
+  var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var idx = [0.14, 0.17, 0.12, 0.30, 0.99, 1.17, 3.67, 2.99, 1.57, 0.48, 0.25, 0.16];
+  var colors = idx.map(function(v) { return v >= 1.3 ? '#16a34a' : v <= 0.6 ? '#dc2626' : '#2563eb'; });
+  var el = document.getElementById('msSeasonChart');
+  if (el) {
+    new Chart(el, {
+      type: 'bar',
+      data: { labels: MON, datasets: [{ data: idx, backgroundColor: colors, label: 'Index', borderRadius: 3, barPercentage: 0.7 }] },
+      options: {
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, datalabels: { display: false } },
+        scales: {
+          y: { min: 0, max: Math.ceil(Math.max.apply(null, idx) + 0.5), ticks: { callback: function(v) { return v.toFixed(1) + 'x'; } }, grid: { color: '#f1f5f9' } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
 })();
 
 // ── Sortable table for Market Structure ──
