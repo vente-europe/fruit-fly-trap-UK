@@ -556,6 +556,16 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="note" style="margin-top:14px">Brand revenue share within each pack size. Lure segment only, 12M. Revenue = units × ASIN list price. 6-pack (£145.3K) and 12-pack (£56.0K) are 100% Super Ninja.</div>
 </div>
 
+<!-- BRAND SHARE LINE CHART -->
+<div class="card">
+  <h3>% Unit Share — Brand vs. Total (Tracked ASINs)</h3>
+  <div class="cw" style="height:460px"><canvas id="msBrandShareLine"></canvas></div>
+  <div class="note">
+    Total tracked sales (units): Apr 3.6K &middot; May 12.1K &middot; Jun 14.4K &middot; Jul 39.1K &middot; Aug 25.5K &middot; Sep 13.7K &middot; Oct 4.2K &middot; Nov 2.1K &middot; Dec 1.2K &middot; Jan 1.1K &middot; Feb 1.4K &middot; Mar 0.8K.
+    Click legend to show/hide brand. <strong>Note:</strong> Based on 5 tracked ASINs with daily sales data. Super Ninja ASINs not available in sales dataset — Zero In share is overstated vs. full market.
+  </div>
+</div>
+
 <div id="ms_insights" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px"></div>
 
 <div class="g2" style="align-items:start">
@@ -1189,6 +1199,37 @@ vocFilterReviews();
   makePkBrandPie('msPkBrandRev1', ['Super Ninja','Zero In'], [37552, 13638]);
   makePkBrandPie('msPkBrandRev2', ['Super Ninja','Zero In'], [394551, 98868]);
   makePkBrandPie('msPkBrandRev4', ['Super Ninja','Zero In'], [303904, 22870]);
+
+  // ── Brand Share Line Chart ──
+  (function() {
+    var months = ["Apr'25","May'25","Jun'25","Jul'25","Aug'25","Sep'25","Oct'25","Nov'25","Dec'25","Jan'26","Feb'26","Mar'26"];
+    var ds = [
+      { label: 'Zero In',    data: [99.1,93.5,94.6,95.5,90.4,89.0,83.5,93.9,93.1,93.1,84.9,91.6], borderColor:'#2563eb', borderWidth:2.5 },
+      { label: 'B0DPW6PVDL', data: [0.0,0.0,0.4,1.5,3.3,7.2,14.3,3.5,2.7,2.6,1.8,0.8],           borderColor:'#dc2626', borderWidth:2.0, borderDash:[5,3] },
+      { label: 'B004OJBGYC', data: [0.0,5.9,4.2,2.2,4.4,2.9,2.2,2.6,3.7,4.2,13.3,7.2],            borderColor:'#d97706', borderWidth:2.0, borderDash:[5,3] },
+      { label: 'B09372CB92', data: [0.9,0.6,0.8,0.8,1.9,0.9,0.1,0.0,0.5,0.2,0.0,0.4],              borderColor:'#64748b', borderWidth:1.5, borderDash:[5,3], hidden:true }
+    ];
+    ds.forEach(function(d) { d.backgroundColor='transparent'; d.tension=0.3; d.pointRadius=3; d.pointHoverRadius=5; });
+    var el = document.getElementById('msBrandShareLine');
+    if (el) {
+      new Chart(el, {
+        type: 'line',
+        data: { labels: months, datasets: ds },
+        options: {
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position:'bottom', labels:{ font:{size:11}, padding:12, boxWidth:20 } },
+            datalabels: { display:false },
+            tooltip: { mode:'index', intersect:false, callbacks:{ label:function(ctx){ return ' '+ctx.dataset.label+': '+ctx.parsed.y.toFixed(1)+'%'; } } }
+          },
+          scales: {
+            y: { min:0, max:105, ticks:{ callback:function(v){return v+'%';}, stepSize:20 }, grid:{ color:'#e2e8f0' } },
+            x: { grid:{ display:false } }
+          }
+        }
+      });
+    }
+  })();
 
   // ── Insights ──
   var insEl = document.getElementById('ms_insights');
