@@ -45,6 +45,83 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .leader-card .lc-name{font-size:.9rem;font-weight:700;color:#0f2942}
 .leader-card .lc-val{font-size:.75rem;color:#2563eb;margin-top:2px}
 @media(max-width:600px){.g2{grid-template-columns:1fr}}
+
+/* ═══ Reviews VOC Tab Styles ═══ */
+.sub-tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;gap:2px;position:sticky;top:115px;z-index:98}
+.sub-tab{padding:10px 18px;cursor:pointer;font-size:.8rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.sub-tab:hover{color:#1e3a5f}.sub-tab.active{color:#1e3a5f;border-bottom-color:#2563eb}
+.sub-panel{display:none}.sub-panel.active{display:block}
+
+.anchor-nav{display:flex;gap:6px;padding:10px 32px 10px;margin:0 -32px 14px;flex-wrap:wrap;position:sticky;top:157px;z-index:97;background:#fff;border-bottom:1px solid #e2e8f0;box-shadow:0 2px 4px rgba(0,0,0,.06)}
+.anchor-nav a{padding:7px 16px;border-radius:20px;font-size:.75rem;font-weight:600;color:#475569;background:#f1f5f9;text-decoration:none;border:1.5px solid #e2e8f0;transition:all .15s}
+.anchor-nav a:hover,.anchor-nav a.active{color:#1e3a5f;background:#dbeafe;border-color:#93c5fd}
+
+.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-top:8px}
+.sec-icon{flex-shrink:0}
+.sec-title{font-size:1rem;font-weight:700;color:#1e293b}
+.sec-summary{font-size:.78rem;color:#64748b;line-height:1.55;margin-bottom:20px;max-width:900px}
+
+.cp-charts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:10px}
+.cp-chart-box{background:#fff;border-radius:8px;padding:14px 14px 10px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.cp-chart-box h4{font-size:.82rem;font-weight:700;color:#1e293b;margin-bottom:8px}
+.cp-chart-wrap{position:relative;height:230px}
+.cp-legend{font-size:.68rem;color:#94a3b8;text-align:right;padding:6px 0 0}
+
+.us-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.us-table th{background:#f8fafc;text-align:left;padding:10px 14px;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+.us-table td{padding:10px 14px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+.us-table tr:hover td{background:#f8fafc}
+.us-label{font-weight:600;color:#1e293b;white-space:nowrap}
+.us-reason{color:#64748b;line-height:1.5}
+.us-pct{text-align:right;white-space:nowrap;color:#1e293b;font-weight:600}
+.us-pct span{display:inline-block;min-width:42px;text-align:right}
+.us-bar-wrap{display:inline-block;width:50px;height:12px;background:#e2e8f0;border-radius:3px;overflow:hidden;vertical-align:middle;margin-right:8px}
+.us-bar{height:100%;background:#93c5fd;border-radius:3px}
+
+.cs-neg-zone{background:#fef2f2;border-radius:10px;padding:18px;margin-bottom:22px}
+.nf-row{cursor:pointer;transition:background .15s}
+.nf-row:hover td{background:#fff5f5!important}
+.nf-arrow{display:inline-block;font-size:.65rem;margin-right:6px;transition:transform .2s;color:#94a3b8}
+.nf-row.open .nf-arrow{transform:rotate(90deg)}
+.nf-detail{display:none}
+.nf-detail.open{display:table-row}
+.nf-body{padding:8px 16px 12px;background:#fff9f9;border-left:3px solid #fca5a5}
+.nf-body ul{margin:0 0 8px 16px;font-size:.75rem;color:#334155;line-height:1.55}
+.nf-body ul li{margin-bottom:2px}
+.nf-quotes{border-top:1px solid #fde8e8;padding-top:6px}
+.nf-quotes p{font-size:.72rem;color:#9a3412;font-style:italic;line-height:1.45;margin-bottom:3px}
+
+.cs-pos-zone{background:#f0fdf4;border-radius:10px;padding:18px;margin-bottom:22px}
+.pf-row{cursor:pointer;transition:background .15s}
+.pf-row:hover td{background:#f0fdf4!important}
+.pf-arrow{display:inline-block;font-size:.65rem;margin-right:6px;transition:transform .2s;color:#94a3b8}
+.pf-row.open .pf-arrow{transform:rotate(90deg)}
+.pf-detail{display:none}
+.pf-detail.open{display:table-row}
+.pf-body{padding:8px 16px 12px;background:#f7fef9;border-left:3px solid #86efac}
+.pf-body ul{margin:0 0 8px 16px;font-size:.75rem;color:#334155;line-height:1.55}
+.pf-body ul li{margin-bottom:2px}
+.pf-quotes{border-top:1px solid #dcfce7;padding-top:6px}
+.pf-quotes p{font-size:.72rem;color:#166534;font-style:italic;line-height:1.45;margin-bottom:3px}
+
+.si-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.si-table th{background:#f8fafc;text-align:left;padding:10px 14px;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+.si-table td{padding:10px 14px;border-bottom:1px solid #f1f5f9;vertical-align:top;line-height:1.55}
+.si-table tr:hover td{background:#f8fafc}
+.si-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.7rem;font-weight:600;line-height:1.3}
+
+.pill{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.68rem;font-weight:600;margin:1px 2px}
+.pill-red{background:#fef2f2;color:#dc2626}
+.pill-orange{background:#fff7ed;color:#ea580c}
+.pill-amber{background:#fffbeb;color:#d97706}
+.pill-blue{background:#eff6ff;color:#2563eb}
+.pill-purple{background:#faf5ff;color:#7c3aed}
+.s1{display:inline-block;padding:2px 6px;border-radius:4px;background:#fef2f2;color:#dc2626;font-weight:700;font-size:.75rem}
+.s2{display:inline-block;padding:2px 6px;border-radius:4px;background:#fff7ed;color:#ea580c;font-weight:700;font-size:.75rem}
+.review-text{font-size:.78rem;color:#334155;line-height:1.55}
+
+@media(max-width:900px){.cp-charts{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.cp-charts{grid-template-columns:1fr}.sub-tabs{padding:0 16px}}
 </style>
 </head>
 <body>
@@ -57,6 +134,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 <div class="tabs">
   <div class="tab active" onclick="show('ti',this)">1 — Main Segments (Total Market)</div>
+  <div class="tab" onclick="show('tii',this)">2 — Reviews VOC</div>
 </div>
 
 <div class="content">
@@ -112,6 +190,283 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 </div>
 <!-- END TAB I -->
+
+<!-- ═══════════════════════════════════════ TAB II — Reviews VOC ══════════════════════════ -->
+<div id="tii" class="panel">
+<h2>Reviews &amp; Voice of Customer</h2>
+<div class="insight">
+  <strong>1,159 reviews analysed</strong> across 3 ASINs in the UK fruit fly traps category. Sentiment ratio 1.2:1 negative-to-positive. Star average: 2.86. Data source: Amazon UK reviews (scraped Mar 2026).
+</div>
+
+<!-- KPI ROW -->
+<div class="kpis">
+  <div class="kpi"><div class="kpi-v">1,159</div><div class="kpi-l">Total Reviews</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:#dc2626">1.7 : 1</div><div class="kpi-l">Neg : Pos Ratio</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:#16a34a">37.0%</div><div class="kpi-l">Positive (4&#9733;+5&#9733;)</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:#dc2626">63.0%</div><div class="kpi-l">Negative (1&#9733;&#8211;3&#9733;)</div></div>
+</div>
+
+<!-- Star Distribution Bar -->
+<div class="card" style="padding:12px 16px;margin-bottom:20px">
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <div style="font-size:.78rem;font-weight:600;color:#475569;white-space:nowrap">Star Distribution</div>
+    <div style="font-size:1.1rem;font-weight:800;color:#0f2942">2.86 <span style="font-size:.7rem;font-weight:400;color:#64748b">avg</span></div>
+    <div id="vocStarBar" style="flex:1;display:flex;height:22px;border-radius:4px;overflow:hidden;min-width:200px"></div>
+    <div id="vocStarLeg" style="display:flex;gap:10px;flex-wrap:wrap;font-size:.68rem;color:#475569"></div>
+  </div>
+</div>
+
+<!-- SUB-TAB BAR -->
+<div class="sub-tabs" style="margin:0 -32px;padding:0 32px">
+  <div class="sub-tab active" onclick="showVocSub('voc-ci',this)">Customer Insights</div>
+  <div class="sub-tab" onclick="showVocSub('voc-rb',this)">Review Browser</div>
+</div>
+
+<!-- ═══ SUB-PANEL: Customer Insights ═══ -->
+<div id="voc-ci" class="sub-panel active">
+
+<!-- Anchor navigation -->
+<div class="anchor-nav" id="vocAnchorNav">
+  <a href="#voc-cp" class="active" onclick="vocScroll(event,'voc-cp',this)">Customer Profile</a>
+  <a href="#voc-us" onclick="vocScroll(event,'voc-us',this)">Usage Scenario</a>
+  <a href="#voc-cs" onclick="vocScroll(event,'voc-cs',this)">Customer Sentiment</a>
+  <a href="#voc-bm" onclick="vocScroll(event,'voc-bm',this)">Buyers Motivation</a>
+  <a href="#voc-ce" onclick="vocScroll(event,'voc-ce',this)">Customer Expectations</a>
+</div>
+
+<!-- SECTION: Customer Profile -->
+<div id="voc-cp">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+    <div class="sec-title">Customer Profile</div>
+  </div>
+  <div class="sec-summary">The most common location is <strong>kitchen</strong>, the most common timing is <strong>summer</strong>, and the dominant topic is <strong>effectiveness</strong>. Price is overwhelmingly a negative signal (172 neg vs 27 pos mentions).</div>
+
+  <div class="cp-charts">
+    <div class="cp-chart-box"><h4>Who</h4><div class="cp-chart-wrap"><canvas id="vocCpWho"></canvas></div></div>
+    <div class="cp-chart-box"><h4>When</h4><div class="cp-chart-wrap"><canvas id="vocCpWhen"></canvas></div></div>
+    <div class="cp-chart-box"><h4>Where</h4><div class="cp-chart-wrap"><canvas id="vocCpWhere"></canvas></div></div>
+    <div class="cp-chart-box"><h4>What</h4><div class="cp-chart-wrap"><canvas id="vocCpWhat"></canvas></div></div>
+  </div>
+  <div class="cp-legend">X-axis: topic &middot; Y-axis: mentions &middot; <span style="color:#22c55e">&#9632;</span> reviews of 4-5 stars &middot; <span style="color:#ef4444">&#9632;</span> reviews of 1-3 stars</div>
+</div>
+
+<!-- SECTION: Usage Scenario -->
+<div id="voc-us" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+    <div class="sec-title">Usage Scenario</div>
+  </div>
+  <div class="sec-summary">Digging into real UK consumer usage scenarios to discover opportunities and optimise marketing content.</div>
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="us-table"><thead><tr><th style="width:22%">Usage Scenario</th><th>Reason</th><th style="width:120px;text-align:right">Percentage</th></tr></thead>
+    <tbody>
+      <tr><td class="us-label">Kitchen fruit fly control</td><td class="us-reason">The primary use case &#8212; customers place traps near fruit bowls, bins, and kitchen surfaces where fruit flies congregate.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:100%"></div></div><span>22.4%</span></td></tr>
+      <tr><td class="us-label">Summer infestation response</td><td class="us-reason">Warm weather triggers sudden fruit fly explosions, driving urgent purchases to regain control quickly.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:76%"></div></div><span>17.1%</span></td></tr>
+      <tr><td class="us-label">Replacing DIY vinegar traps</td><td class="us-reason">Customers tired of homemade apple cider vinegar + washing-up liquid setups seek a cleaner commercial alternative.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:58%"></div></div><span>13.0%</span></td></tr>
+      <tr><td class="us-label">Eco-friendly alternative</td><td class="us-reason">Customers seek chemical-free, non-toxic solutions safe for homes with children and pets.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:53%"></div></div><span>11.9%</span></td></tr>
+      <tr><td class="us-label">Last resort purchase</td><td class="us-reason">Buyers who have tried multiple methods (sprays, vinegar, fly paper) turn to specialist traps as a final option.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:45%"></div></div><span>10.1%</span></td></tr>
+      <tr><td class="us-label">Compost &amp; bin area</td><td class="us-reason">Placement near compost bins and food waste areas where fruit flies breed, targeting the source.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:36%"></div></div><span>8.1%</span></td></tr>
+      <tr><td class="us-label">Persistent multi-week use</td><td class="us-reason">Customers deploy traps over several weeks, often evaluating effectiveness over extended periods.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:27%"></div></div><span>6.0%</span></td></tr>
+      <tr><td class="us-label">Discreet home pest control</td><td class="us-reason">Customers value inconspicuous design that doesn&#8217;t look like a pest trap in visible kitchen areas.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:22%"></div></div><span>5.0%</span></td></tr>
+      <tr><td class="us-label">Recommendation-driven</td><td class="us-reason">Buyers purchase after a friend or online recommendation, social proof as a conversion driver.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:18%"></div></div><span>4.0%</span></td></tr>
+      <tr><td class="us-label">Office / workplace</td><td class="us-reason">Traps placed in shared offices, breakrooms, and commercial kitchens for communal pest control.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:10%"></div></div><span>2.4%</span></td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- SECTION: Customer Sentiment -->
+<div id="voc-cs" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+    <div class="sec-title">Customer Sentiment</div>
+  </div>
+  <div class="sec-summary">Analysing what drives negative and positive experiences, uncovering recurring complaint patterns and satisfaction drivers from 1,159 UK reviews.</div>
+
+  <!-- NEGATIVE FEEDBACK -->
+  <div class="cs-neg-zone">
+    <div class="card" style="padding:0;overflow:hidden;border:1.5px solid #fecaca">
+      <table class="us-table" id="vocNegTable"><thead><tr style="background:#fef2f2"><th style="width:22%;border-left:3px solid #dc2626">Negative Feedback Topic</th><th>Reasons for Negative Feedback</th><th style="width:110px;text-align:right">Percentage</th></tr></thead>
+      <tbody>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> No effect / zero catch</td><td class="us-reason">Customers set up traps and report zero catches after days. "Doesn't work" is the #1 complaint.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:100%;background:#fca5a5"></div></div><span>29.6%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>208 out of 300 one-star reviews mention ineffectiveness</li><li>Many compare unfavourably to sticky traps or DIY vinegar</li><li>Strong emotional language: "waste," "useless," "rubbish"</li></ul><div class="nf-quotes"><p>"Two traps in separate locations have caught zero fruit flies. Complete waste of money."</p><p>"Don't buy these they are absolutely useless. Just buy the sticky yellow fly paper type that actually works."</p><p>"The fruit flies flew around laughing at the traps."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> Overpriced / poor value</td><td class="us-reason">Customers feel cheated &#8212; "waste of money" is common. DIY comparisons make price feel unjustified.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:54%;background:#fca5a5"></div></div><span>15.9%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>73 out of 300 one-star reviews mention price</li><li>Price is a multiplier of dissatisfaction, not a standalone issue</li></ul><div class="nf-quotes"><p>"The highly effective fruit fly killer is absolutely useless. Unfortunately a waste of money."</p><p>"&#163;10 for two tiny little bottles I feel it's too much for a little bit of vinegar."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> DIY / vinegar works better</td><td class="us-reason">Customers run side-by-side tests with apple cider vinegar + washing-up liquid. Homemade traps often outperform.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:28%;background:#fca5a5"></div></div><span>8.4%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>Some identify the product as "just vinegar" &#8212; undermining perceived value</li><li>Recipe sharing in reviews accelerates DIY adoption</li></ul><div class="nf-quotes"><p>"It's too small and only contains vinegar, which you can make yourself. Don't buy it, never!!!"</p><p>"Sticky flower traps work great. Vinegar bottle traps don't work at all."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> Sticky tape issues</td><td class="us-reason">Adhesive strips don't hold, fall off surfaces, or have insufficient glue. Comparison to traditional fly paper.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:26%;background:#fca5a5"></div></div><span>7.7%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>Product slides down or detaches from placement spot</li><li>Customers switch to traditional sticky flypaper instead</li></ul><div class="nf-quotes"><p>"The sticky sticker on the back isn't sticky enough and keeps falling off the cupboard."</p><p>"Having more success with yellow sticky fly catchers."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> Too small / tiny bottles</td><td class="us-reason">Small bottle size vs. price expectation creates instant disappointment.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:14%;background:#fca5a5"></div></div><span>4.1%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>Customers expected larger containers for the price paid</li><li>"Tiny" and "ridiculously small" are recurring descriptions</li></ul><div class="nf-quotes"><p>"Product is tiny (3cm tall) and the tiny black flies just fly right on past."</p><p>"&#163;10 for two tiny little bottles."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> Packaging leaks / damage</td><td class="us-reason">Bottles arrive leaked, empty, or damaged. Product unusable before first use.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:13%;background:#fca5a5"></div></div><span>3.7%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>Multi-pack orders where 1-2 units are defective amplify frustration</li></ul><div class="nf-quotes"><p>"One of them was broken so would not buy again."</p><p>"1 bottle empty, other only half full. No option for replacement."</p><p>"Comes with 2 small bottles, one bottle had no lid so the liquid had leaked out everywhere."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> Smell complaints</td><td class="us-reason">Vinegar smell reported as unpleasant in kitchen environments.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:11%;background:#fca5a5"></div></div><span>3.3%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>Smell is a hygiene factor &#8212; mainly a problem for lure-type traps</li></ul><div class="nf-quotes"><p>"Smells nice but not to fruit flies. Zero flies captured."</p><p>"Just smells of vinegar. Bottle only half full."</p></div></div></td></tr>
+
+        <tr class="nf-row" onclick="toggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> Weak attractant</td><td class="us-reason">Flies show no interest in the attractant. They fly over or completely ignore the trap.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:10%;background:#fca5a5"></div></div><span>2.9%</span></td></tr>
+        <tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul><li>Flies completely ignore the trap even when placed directly in their path</li></ul><div class="nf-quotes"><p>"Didn't work &#8212; fruit flies were not attracted to it."</p><p>"The fruit flies in the room here just fly over it and totally ignore it."</p></div></div></td></tr>
+
+      </tbody></table>
+    </div>
+
+    <!-- Negative Review Insights -->
+    <div class="card" style="margin-top:22px;border:1.5px solid #fca5a5">
+      <div class="sec-header" style="margin-bottom:10px">
+        <div class="sec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <div class="sec-title">Negative Review Insights &#8212; CPG / Amazon Product Strategy</div>
+      </div>
+      <table class="si-table"><thead><tr><th style="width:130px">Analysis Type</th><th>Finding (from 1&#9733;+2&#9733; reviews)</th><th>Strategic Implication</th></tr></thead>
+      <tbody>
+        <tr><td><span class="si-badge" style="background:#fee2e2;color:#991b1b">Efficacy Crisis</span></td><td>29.6% of negative reviews cite "no effect" or "doesn't work." This is the #1 complaint and the biggest threat to listing health.</td><td>Investigate <strong>batch inconsistency</strong> with manufacturer. Add usage instructions insert: "Place near fruit, allow 24&#8211;48 hrs." A+ content should set realistic timeframe expectations.</td></tr>
+        <tr><td><span class="si-badge" style="background:#fef3c7;color:#92400e">Expectation Gap</span></td><td>15.9% feel product doesn't justify the price. "Waste of money" drives 1&#9733; ratings disproportionately.</td><td>Audit listing copy for <strong>overpromising</strong>. Remove absolute claims. Add honest qualifiers: "Results vary by infestation level." Consider a <strong>value multi-pack</strong> SKU.</td></tr>
+        <tr><td><span class="si-badge" style="background:#fce7f3;color:#9d174d">DIY Threat</span></td><td>8.4% say vinegar or homemade traps work better. This undermines the premium positioning of commercial traps.</td><td>Counter-narrative in A+ content: <strong>"Why commercial traps outperform DIY"</strong> &#8212; cleaner, odourless, no daily maintenance. Target convenience messaging.</td></tr>
+        <tr><td><span class="si-badge" style="background:#ffedd5;color:#9a3412">Adhesion Failure</span></td><td>7.7% report sticky tape issues &#8212; traps fall off surfaces or won't adhere properly.</td><td><strong>QC improvement</strong> on adhesive strips. Test across surfaces (tile, painted wood, glass). Add "best surfaces" guidance in listing copy.</td></tr>
+        <tr><td><span class="si-badge" style="background:#ede9fe;color:#5b21b6">Size Perception</span></td><td>4.1% cite tiny bottle size as disappointing. Photos may not convey actual product dimensions.</td><td>Add <strong>size reference</strong> in listing images (next to common objects). State dimensions clearly in bullet points. Manage first-impression expectations.</td></tr>
+        <tr><td><span class="si-badge" style="background:#e0f2fe;color:#0369a1">Fulfilment Issues</span></td><td>3.7% receive leaked or damaged products. Product unusable on arrival.</td><td><strong>Packaging redesign</strong>: leak-proof seal, protective insert. Review FBA prep instructions. Damaged units = instant 1&#9733; + return.</td></tr>
+        <tr><td><span class="si-badge" style="background:#f1f5f9;color:#475569">Smell Factor</span></td><td>3.3% complain about vinegar smell. Kitchen placement requires zero odour.</td><td><strong>Formulation fix</strong> &#8212; odour masking or neutral-scent variant. Only claim "odourless" after formula change.</td></tr>
+      </tbody></table>
+    </div>
+  </div><!-- /cs-neg-zone -->
+
+  <!-- POSITIVE FEEDBACK -->
+  <div class="cs-pos-zone">
+    <div class="card" style="padding:0;overflow:hidden;border:1.5px solid #bbf7d0">
+      <table class="us-table" id="vocPosTable"><thead><tr style="background:#f0fdf4"><th style="width:22%;border-left:3px solid #16a34a">Positive Feedback Topic</th><th>Reasons for Positive Feedback</th><th style="width:110px;text-align:right">Percentage</th></tr></thead>
+      <tbody>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Highly effective</td><td class="us-reason">Customers report the trap catches flies &#8212; "amazing," "brilliant," "actually works." Effectiveness is the #1 satisfaction driver.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:100%;background:#86efac"></div></div><span>51.0%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>Over half of satisfied buyers explicitly mention effectiveness</li><li>Speed of catch is a sub-driver &#8212; "next morning" results generate the strongest praise</li></ul><div class="pf-quotes"><p>"Very effective &#8212; attracts the flies and you'd be amazed how many end up being caught."</p><p>"Amazing!! After having them up for 1 day all my flies are gone."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Would recommend / buy again</td><td class="us-reason">14.2% explicitly recommend or say "would buy again." Repeat purchase intent is strong among satisfied buyers.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:28%;background:#86efac"></div></div><span>14.2%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>Strong word-of-mouth signal &#8212; customers actively tell others to buy</li><li>Many mention gifting or recommending to friends/family</li></ul><div class="pf-quotes"><p>"I thought it was just another gimmick but to my surprise it actually works &#8212; highly recommend."</p><p>"Within about 4 hours all the fruit flies were in the little jar. Highly recommend."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Eco-friendly / natural</td><td class="us-reason">Chemical-free, non-toxic, safe for homes with children and pets. Environmental responsibility praised.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:24%;background:#86efac"></div></div><span>12.4%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>"No chemicals" and "safe around kids" are key purchase drivers</li><li>Eco angle resonates strongly with UK consumers</li></ul><div class="pf-quotes"><p>"Safe, natural, and it actually works. Perfect for a house with small children."</p><p>"No chemicals, no poison &#8212; just a natural trap."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Easy to use / simple setup</td><td class="us-reason">Just open, peel, and stick &#8212; no complicated setup. Convenience is a strong satisfier.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:16%;background:#86efac"></div></div><span>8.2%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>Low-effort setup praised vs. DIY traps that require mixing ingredients</li></ul><div class="pf-quotes"><p>"They do work. Easy to stick on surfaces. Strong stick. Easy to set up."</p><p>"Does exactly what it says, took a couple of days to clear all flies."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Fast results</td><td class="us-reason">Results within hours or by next morning. Speed of catch directly counters the "no effect" narrative.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:11%;background:#86efac"></div></div><span>5.8%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>"Within hours," "overnight," "straight away" &#8212; speed is a delight factor</li></ul><div class="pf-quotes"><p>"These are incredible! They catch basically all fruit flies overnight."</p><p>"Worked really quickly &#8212; within a few hours pretty much none left."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Discreet design</td><td class="us-reason">Doesn't look like a pest trap &#8212; inconspicuous in kitchen and living areas.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:5%;background:#86efac"></div></div><span>2.3%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>Aesthetic appeal matters &#8212; customers don't want ugly traps visible to guests</li></ul><div class="pf-quotes"><p>"Small and relatively discreet, it seems to attract the pesky little critters."</p><p>"Well hidden. If I'm ever unfortunate enough to get a fruit fly plague again I'll buy this. 100%."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> Good value</td><td class="us-reason">Price rarely praised directly &#8212; but satisfied buyers see it as fair when the product works.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:4%;background:#86efac"></div></div><span>1.9%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>Price is a <strong>dissatisfier, not a satisfier</strong> &#8212; only 1.9% mention value positively vs. 15.9% who complain</li></ul><div class="pf-quotes"><p>"Really worth it. My jars are full of fruit flies."</p><p>"Great product and great price."</p></div></div></td></tr>
+
+        <tr class="pf-row" onclick="togglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> No smell / odourless</td><td class="us-reason">Doesn't stink like vinegar traps. Odourless operation is a comfort factor in kitchens.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:3%;background:#86efac"></div></div><span>1.4%</span></td></tr>
+        <tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul><li>Contrasts with DIY vinegar traps that produce unpleasant kitchen odours</li></ul><div class="pf-quotes"><p>"These are incredible! They catch basically all fruit flies overnight, and last weeks. There is no smell."</p><p>"It works! And it doesn't smell!"</p></div></div></td></tr>
+
+      </tbody></table>
+    </div>
+
+    <!-- Positive Review Insights -->
+    <div class="card" style="margin-top:22px">
+      <div class="sec-header" style="margin-bottom:10px">
+        <div class="sec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <div class="sec-title">Positive Review Insights &#8212; CPG / Amazon Product Strategy</div>
+      </div>
+      <table class="si-table"><thead><tr><th style="width:130px">Analysis Type</th><th>Finding (from 4&#9733;+5&#9733; reviews)</th><th>Strategic Implication</th></tr></thead>
+      <tbody>
+        <tr><td><span class="si-badge" style="background:#dbeafe;color:#1e40af">Efficacy Signal</span></td><td>51% of positive reviews mention effectiveness. Speed of catch (5.8%) is a secondary wow-factor.</td><td>Lead with <strong>"visible results in 24 hours"</strong> in A+ content and main images. Before/after photos would boost conversion.</td></tr>
+        <tr><td><span class="si-badge" style="background:#fef3c7;color:#92400e">Loyalty Loop</span></td><td>14.2% explicitly recommend or say "would buy again." Repeat purchase intent is strong.</td><td>Subscribe &amp; Save enrolment opportunity. Bundle "starter kit + refills" to lock in repeat revenue.</td></tr>
+        <tr><td><span class="si-badge" style="background:#d1fae5;color:#065f46">Safety Segment</span></td><td>12.4% mention child/pet safety as a purchase driver. "No poison" and "safe around kids" are explicit value statements.</td><td>Prominent <strong>safety badges</strong> in listing images. Target parents/pet owners in PPC campaigns.</td></tr>
+        <tr><td><span class="si-badge" style="background:#ede9fe;color:#5b21b6">Speed Advantage</span></td><td>5.8% praise fast results &#8212; "overnight," "within hours." This directly counters the "no effect" negative narrative.</td><td>Use <strong>time-specific claims</strong> in bullet points: "Most users see first catches within 24 hours."</td></tr>
+        <tr><td><span class="si-badge" style="background:#ffedd5;color:#9a3412">Convenience Play</span></td><td>8.2% value ease of use &#8212; "easy," "simple," "convenient." This is the anti-DIY argument.</td><td>Position as <strong>zero-effort solution</strong>: "Unlike DIY traps &#8212; no mixing, no mess, no refilling."</td></tr>
+        <tr><td><span class="si-badge" style="background:#fce7f3;color:#9d174d">Design Value</span></td><td>2.3% praise discreet design. Small segment but a differentiator vs. ugly yellow sticky traps.</td><td>Emphasise <strong>aesthetic superiority over DIY</strong>. Lifestyle imagery showing trap blending into modern UK kitchens.</td></tr>
+        <tr><td><span class="si-badge" style="background:#f1f5f9;color:#475569">Price Silence</span></td><td>Only 1.9% of positive reviews mention value/price. It's rarely praised, even when the product works.</td><td>Price is a <strong>dissatisfier, not a satisfier</strong>. Focus on perceived value through packaging/branding, not price cuts.</td></tr>
+      </tbody></table>
+    </div>
+  </div><!-- /cs-pos-zone -->
+</div><!-- /sec-cs -->
+
+<!-- SECTION: Buyers Motivation -->
+<div id="voc-bm" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+    <div class="sec-title">Buyers Motivation</div>
+  </div>
+  <div class="sec-summary">Insight into UK consumer purchase decision-making, to optimise marketing strategies in a targeted manner.</div>
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="us-table"><thead><tr><th style="width:22%">Buyers Motivation</th><th>Reasons for buyers motivation</th><th style="width:110px;text-align:right">Percentage</th></tr></thead>
+    <tbody>
+      <tr><td class="us-label">Fruit fly problem</td><td class="us-reason">Customers purchase after noticing a fruit fly infestation at home &#8212; a reactive, problem-driven buy.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:100%;background:#93c5fd"></div></div><span>24.0%</span></td></tr>
+      <tr><td class="us-label">Kitchen hygiene</td><td class="us-reason">Maintaining a clean, fly-free kitchen is a core driver &#8212; flies near food are seen as a hygiene issue.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:58%;background:#93c5fd"></div></div><span>14.0%</span></td></tr>
+      <tr><td class="us-label">DIY alternative failed</td><td class="us-reason">Customers tried vinegar traps or home remedies first and switched after those didn't work.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:50%;background:#93c5fd"></div></div><span>12.0%</span></td></tr>
+      <tr><td class="us-label">Seasonal urgency</td><td class="us-reason">Summer fruit fly season triggers purchase urgency &#8212; buyers want a fast, ready-made solution.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:50%;background:#93c5fd"></div></div><span>12.0%</span></td></tr>
+      <tr><td class="us-label">Safe for kids / pets</td><td class="us-reason">Non-toxic, poison-free traps appeal to families with children or pets.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:38%;background:#93c5fd"></div></div><span>9.0%</span></td></tr>
+      <tr><td class="us-label">Discreet design</td><td class="us-reason">Buyers want a trap that doesn't look like a trap &#8212; discreet design for kitchen-visible placement.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:33%;background:#93c5fd"></div></div><span>8.0%</span></td></tr>
+      <tr><td class="us-label">Repeat purchase</td><td class="us-reason">Satisfied previous buyers return for refills or replacements &#8212; brand loyalty drives repeat orders.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:29%;background:#93c5fd"></div></div><span>7.0%</span></td></tr>
+      <tr><td class="us-label">Recommendation</td><td class="us-reason">Word-of-mouth from friends, family, or online reviews motivated the purchase.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:25%;background:#93c5fd"></div></div><span>6.0%</span></td></tr>
+      <tr><td class="us-label">Convenience</td><td class="us-reason">Ready-to-use, no-prep traps appeal to buyers who want zero effort.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:17%;background:#93c5fd"></div></div><span>4.0%</span></td></tr>
+      <tr><td class="us-label">Price / deal</td><td class="us-reason">A sale, coupon, or competitive price point tipped the purchase decision.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:13%;background:#93c5fd"></div></div><span>3.0%</span></td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+<!-- SECTION: Customer Expectations -->
+<div id="voc-ce" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+    <div class="sec-title">Customer Expectations</div>
+  </div>
+  <div class="sec-summary">Understanding specific unmet needs helps manufacturers and retailers develop products and marketing strategies that effectively address UK consumer demands.</div>
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="us-table"><thead><tr><th style="width:22%">Customer Unmet Needs</th><th>Reason for Customer Unmet Needs</th><th style="width:110px;text-align:right">Percentage</th></tr></thead>
+    <tbody>
+      <tr><td class="us-label">Reliable effectiveness</td><td class="us-reason">Users want consistent catch rates across different environments &#8212; performance shouldn't vary by room or fly species.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:100%;background:#93c5fd"></div></div><span>22.0%</span></td></tr>
+      <tr><td class="us-label">Better value for money</td><td class="us-reason">Customers expect lower per-unit cost or longer lifespan to justify the price vs. DIY alternatives.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:68%;background:#93c5fd"></div></div><span>15.0%</span></td></tr>
+      <tr><td class="us-label">Longer lasting effect</td><td class="us-reason">Customers expect traps to remain effective for weeks, not days &#8212; short lifespan drives dissatisfaction.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:55%;background:#93c5fd"></div></div><span>12.0%</span></td></tr>
+      <tr><td class="us-label">Odourless operation</td><td class="us-reason">Kitchen placement requires zero smell &#8212; any noticeable odour from attractant liquid is unacceptable.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:50%;background:#93c5fd"></div></div><span>11.0%</span></td></tr>
+      <tr><td class="us-label">Stronger adhesive</td><td class="us-reason">Sticky traps need to stay put on various surfaces &#8212; falling traps are a top frustration for the segment.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:45%;background:#93c5fd"></div></div><span>10.0%</span></td></tr>
+      <tr><td class="us-label">Discreet appearance</td><td class="us-reason">Customers seek traps that blend into kitchen decor &#8212; visible dead flies or bulky design are deal-breakers.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:36%;background:#93c5fd"></div></div><span>8.0%</span></td></tr>
+      <tr><td class="us-label">Mess-free setup</td><td class="us-reason">Liquid spills during opening and sticky residue frustrate users &#8212; customers expect clean, tool-free activation.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:32%;background:#93c5fd"></div></div><span>7.0%</span></td></tr>
+      <tr><td class="us-label">Works on all flying insects</td><td class="us-reason">Users expect the trap to catch gnats, drain flies, and other small insects &#8212; narrow scope disappoints.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:27%;background:#93c5fd"></div></div><span>6.0%</span></td></tr>
+      <tr><td class="us-label">Eco-friendly materials</td><td class="us-reason">Environmentally conscious UK buyers want biodegradable or recyclable traps &#8212; plastic waste is a concern.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:23%;background:#93c5fd"></div></div><span>5.0%</span></td></tr>
+      <tr><td class="us-label">Clear usage instructions</td><td class="us-reason">Some buyers don't know optimal placement or expected timeframe &#8212; better guidance would reduce premature "doesn't work" reviews.</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:18%;background:#93c5fd"></div></div><span>4.0%</span></td></tr>
+    </tbody></table>
+  </div>
+</div>
+
+</div><!-- /voc-ci sub-panel -->
+
+<!-- ═══ SUB-PANEL: Review Browser ═══ -->
+<div id="voc-rb" class="sub-panel">
+  <div class="card">
+    <h3>Review Browser <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Filter by rating, theme, or keyword</span></h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <select id="vocFilterRating" onchange="vocFilterReviews()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 8px;background:#fff">
+        <option value="">All Ratings</option>
+        <option value="1">1&#9733; only</option><option value="2">2&#9733; only</option><option value="3">3&#9733; only</option><option value="4">4&#9733; only</option><option value="5">5&#9733; only</option>
+      </select>
+      <select id="vocFilterTheme" onchange="vocFilterReviews()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 8px;background:#fff">
+        <option value="">All Themes</option>
+        <option value="no_effect">No Effect</option><option value="effective">Effective</option><option value="fast_results">Fast Results</option>
+        <option value="smell">Smell</option><option value="sticky_issues">Sticky Issues</option><option value="packaging">Packaging</option>
+        <option value="too_expensive">Too Expensive</option><option value="diy_better">DIY Better</option><option value="attractant_weak">Weak Attractant</option>
+        <option value="easy_use">Easy to Use</option><option value="discreet">Discreet</option><option value="safe_natural">Safe/Natural</option>
+      </select>
+      <input id="vocFilterSearch" oninput="vocFilterReviews()" placeholder="Search keyword..." style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 8px;width:160px">
+      <button onclick="vocClearFilters()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 10px;background:#f8fafc;cursor:pointer">Clear</button>
+    </div>
+    <div id="vocResultCount" style="font-size:.72rem;color:#64748b;margin-bottom:6px"></div>
+    <div class="tbl-wrap" style="max-height:520px">
+      <table id="vocReviewTable"><thead><tr><th style="width:40px">&#9733;</th><th>Review</th></tr></thead>
+      <tbody id="vocReviewBody"></tbody></table>
+    </div>
+  </div>
+</div><!-- /voc-rb sub-panel -->
+
+</div>
+<!-- END TAB II -->
 
 </div><!-- .content -->
 
@@ -321,6 +676,156 @@ function segInit() {
 }
 
 segInit();
+
+// ═══════════════ TAB II — REVIEWS VOC ════════════════════════════════════════
+
+// Sub-tab switching
+function showVocSub(id, el) {
+  document.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(id).classList.add('active');
+  Object.values(Chart.instances).forEach(c => c.resize());
+}
+
+// Anchor scroll
+function vocScroll(e, id, el) {
+  e.preventDefault();
+  const target = document.getElementById(id);
+  if (target) {
+    const y = target.getBoundingClientRect().top + window.pageYOffset - 170;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.anchor-nav a').forEach(a => a.classList.remove('active'));
+  if (el) el.classList.add('active');
+}
+
+// Expandable rows
+function toggleNF(row) {
+  var detail = row.nextElementSibling;
+  var isOpen = row.classList.contains('open');
+  document.querySelectorAll('.nf-row.open').forEach(function(r) { r.classList.remove('open'); r.nextElementSibling.classList.remove('open'); });
+  if (!isOpen) { row.classList.add('open'); detail.classList.add('open'); }
+}
+function togglePF(row) {
+  var detail = row.nextElementSibling;
+  var isOpen = row.classList.contains('open');
+  document.querySelectorAll('.pf-row.open').forEach(function(r) { r.classList.remove('open'); r.nextElementSibling.classList.remove('open'); });
+  if (!isOpen) { row.classList.add('open'); detail.classList.add('open'); }
+}
+
+// Star distribution bar
+(function() {
+  const dist = [
+    { star: 1, count: 300, color: '#dc2626' },
+    { star: 2, count: 215, color: '#ea580c' },
+    { star: 3, count: 215, color: '#f59e0b' },
+    { star: 4, count: 206, color: '#22c55e' },
+    { star: 5, count: 223, color: '#16a34a' }
+  ];
+  const total = dist.reduce((s, d) => s + d.count, 0);
+  const bar = document.getElementById('vocStarBar');
+  const leg = document.getElementById('vocStarLeg');
+  if (!bar || !leg) return;
+  bar.innerHTML = dist.map(d => {
+    const pct = (d.count / total * 100).toFixed(1);
+    return '<div style="width:' + pct + '%;background:' + d.color + ';display:flex;align-items:center;justify-content:center;color:#fff;font-size:.68rem;font-weight:600">' + pct + '%</div>';
+  }).join('');
+  leg.innerHTML = dist.map(d =>
+    '<span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:' + d.color + ';margin-right:3px"></span>' + d.star + '&#9733; ' + d.count + '</span>'
+  ).join('');
+})();
+
+// Customer Profile charts
+(function() {
+  const cpData = {
+    who:   { labels: ['mum/dad','friend','partner','kids','family'], pos: [4,2,1,2,0], neg: [0,2,2,0,1] },
+    when:  { labels: ['summer','immediately','overnight','within days','within weeks'], pos: [16,12,8,0,0], neg: [8,2,1,1,0] },
+    where: { labels: ['kitchen','house/home','bin/compost','fruit bowl','window'], pos: [30,21,17,11,4], neg: [37,44,18,11,11] },
+    what:  { labels: ['effectiveness','price/money','eco/natural','recommend','vinegar'], pos: [157,27,53,47,12], neg: [127,172,30,20,54] }
+  };
+  function makeBar(canvasId, labels, posData, negData) {
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          { label: '4-5 stars', data: posData, backgroundColor: '#22c55e', borderRadius: { topLeft: 3, topRight: 3 }, barPercentage: 0.7 },
+          { label: '1-3 stars', data: negData.map(v => -v), backgroundColor: '#ef4444', borderRadius: { bottomLeft: 3, bottomRight: 3 }, barPercentage: 0.7 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: { legend: { display: false }, datalabels: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ': ' + Math.abs(ctx.raw); } } }
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748b', maxRotation: 35 } },
+          y: { grid: { color: '#f1f5f9', drawBorder: false }, ticks: { font: { size: 10 }, color: '#94a3b8', callback: function(v) { return Math.abs(v); } } }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  }
+  makeBar('vocCpWho',   cpData.who.labels,   cpData.who.pos,   cpData.who.neg);
+  makeBar('vocCpWhen',  cpData.when.labels,  cpData.when.pos,  cpData.when.neg);
+  makeBar('vocCpWhere', cpData.where.labels, cpData.where.pos, cpData.where.neg);
+  makeBar('vocCpWhat',  cpData.what.labels,  cpData.what.pos,  cpData.what.neg);
+})();
+
+// Review Browser
+var VOC_REVIEWS = [];
+(function() {
+  fetch('Data/reviews/reviews-browser.json')
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      VOC_REVIEWS = data;
+      vocFilterReviews();
+    })
+    .catch(function() {
+      document.getElementById('vocResultCount').textContent = 'Failed to load reviews data.';
+    });
+})();
+
+var STAR_COLORS = { 1: '#dc2626', 2: '#ea580c', 3: '#f59e0b', 4: '#22c55e', 5: '#16a34a' };
+var TAG_STYLES = {
+  no_effect: 'pill-red', effective: 'pill-blue', fast_results: 'pill-blue', smell: 'pill-orange',
+  sticky_issues: 'pill-amber', packaging: 'pill-orange', too_expensive: 'pill-red', diy_better: 'pill-purple',
+  attractant_weak: 'pill-red', easy_use: 'pill-blue', discreet: 'pill-blue', safe_natural: 'pill-blue', good_value: 'pill-blue'
+};
+
+function vocFilterReviews() {
+  var rating = document.getElementById('vocFilterRating').value;
+  var theme = document.getElementById('vocFilterTheme').value;
+  var search = document.getElementById('vocFilterSearch').value.toLowerCase();
+  var filtered = VOC_REVIEWS.filter(function(r) {
+    if (rating && r.r != rating) return false;
+    if (theme && r.tags.indexOf(theme) === -1) return false;
+    if (search && r.t.toLowerCase().indexOf(search) === -1) return false;
+    return true;
+  });
+  document.getElementById('vocResultCount').textContent = 'Showing ' + filtered.length + ' of ' + VOC_REVIEWS.length + ' reviews';
+  var html = '';
+  var limit = Math.min(filtered.length, 200);
+  for (var i = 0; i < limit; i++) {
+    var r = filtered[i];
+    var starHtml = '<span style="color:' + STAR_COLORS[r.r] + ';font-weight:700">' + r.r + '&#9733;</span>';
+    var tagsHtml = r.tags.map(function(t) { return '<span class="pill ' + (TAG_STYLES[t] || 'pill-blue') + '">' + t.replace(/_/g, ' ') + '</span>'; }).join('');
+    html += '<tr><td>' + starHtml + '</td><td><div class="review-text">' + r.t.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</div>' + (tagsHtml ? '<div style="margin-top:4px">' + tagsHtml + '</div>' : '') + '</td></tr>';
+  }
+  if (filtered.length > 200) html += '<tr><td colspan="2" style="text-align:center;color:#64748b;font-size:.72rem;padding:12px">Showing first 200 of ' + filtered.length + ' results. Use filters to narrow down.</td></tr>';
+  document.getElementById('vocReviewBody').innerHTML = html;
+}
+
+function vocClearFilters() {
+  document.getElementById('vocFilterRating').value = '';
+  document.getElementById('vocFilterTheme').value = '';
+  document.getElementById('vocFilterSearch').value = '';
+  vocFilterReviews();
+}
 </script>
 </body>
 </html>
