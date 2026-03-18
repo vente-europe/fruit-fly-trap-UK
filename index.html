@@ -558,11 +558,11 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 <!-- BRAND SHARE LINE CHART -->
 <div class="card">
-  <h3>% Unit Share — Brand vs. Total (Tracked ASINs)</h3>
+  <h3>% Unit Share — Brand vs. Total Lure</h3>
   <div class="cw" style="height:460px"><canvas id="msBrandShareLine"></canvas></div>
   <div class="note">
-    Total tracked sales (units): Apr 3.6K &middot; May 12.1K &middot; Jun 14.4K &middot; Jul 39.1K &middot; Aug 25.5K &middot; Sep 13.7K &middot; Oct 4.2K &middot; Nov 2.1K &middot; Dec 1.2K &middot; Jan 1.1K &middot; Feb 1.4K &middot; Mar 0.8K.
-    Click legend to show/hide brand. <strong>Note:</strong> Based on 5 tracked ASINs with daily sales data. Super Ninja ASINs not available in sales dataset — Zero In share is overstated vs. full market.
+    Total Lure sales (units): Apr 6.7K &middot; May 18.4K &middot; Jun 21.0K &middot; Jul 52.4K &middot; Aug 34.3K &middot; Sep 17.9K &middot; Oct 4.2K &middot; Nov 2.4K &middot; Dec 1.4K &middot; Jan 9.0K &middot; Feb 7.9K &middot; Mar 4.9K.
+    Click legend to show/hide brand. Super Ninja entered UK market Jan 2026 and rapidly captured ~80% share from Zero In within 2 months.
   </div>
 </div>
 
@@ -722,9 +722,9 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="card">
   <h3>Seasonality Index — Lure Segment</h3>
   <div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr));margin-bottom:14px">
-    <div class="kpi"><div class="kpi-v">Jul</div><div class="kpi-l">Peak (index 3.67)</div></div>
-    <div class="kpi"><div class="kpi-v">Mar</div><div class="kpi-l">Trough (index 0.12)</div></div>
-    <div class="kpi"><div class="kpi-v">30.6&times;</div><div class="kpi-l">Peak / Trough Ratio</div></div>
+    <div class="kpi"><div class="kpi-v">Jul</div><div class="kpi-l">Peak (index 3.30)</div></div>
+    <div class="kpi"><div class="kpi-v">Dec</div><div class="kpi-l">Trough (index 0.13)</div></div>
+    <div class="kpi"><div class="kpi-v">25.4&times;</div><div class="kpi-l">Peak / Trough Ratio</div></div>
     <div class="kpi"><div class="kpi-v">14.7%</div><div class="kpi-l">Revenue from listings &lt;12mo</div></div>
   </div>
   <div style="font-size:.78rem;font-weight:600;color:#475569;margin-bottom:8px">
@@ -732,7 +732,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     &nbsp;&nbsp;<span style="color:#16a34a">&#9632; Peak</span>&nbsp;&nbsp;<span style="color:#dc2626">&#9632; Trough</span>
   </div>
   <div class="cw" style="height:260px"><canvas id="msSeasonChart"></canvas></div>
-  <div class="note">Lure segment only. Index 1.0 = typical month. &gt;1.0 = sales above average, &lt;1.0 = below. Helps plan product launch timing and PPC budget allocation throughout the year. Based on daily sales data for 5 tracked ASINs over 2 years.</div>
+  <div class="note">Lure segment only. Index 1.0 = typical month. &gt;1.0 = sales above average, &lt;1.0 = below. Helps plan product launch timing and PPC budget allocation throughout the year. Based on daily sales data for 12 tracked ASINs.</div>
 </div>
 
 </div>
@@ -1204,10 +1204,10 @@ vocFilterReviews();
   (function() {
     var months = ["Apr'25","May'25","Jun'25","Jul'25","Aug'25","Sep'25","Oct'25","Nov'25","Dec'25","Jan'26","Feb'26","Mar'26"];
     var ds = [
-      { label: 'Zero In',    data: [99.1,93.5,94.6,95.5,90.4,89.0,83.5,93.9,93.1,93.1,84.9,91.6], borderColor:'#2563eb', borderWidth:2.5 },
-      { label: 'B0DPW6PVDL', data: [0.0,0.0,0.4,1.5,3.3,7.2,14.3,3.5,2.7,2.6,1.8,0.8],           borderColor:'#dc2626', borderWidth:2.0, borderDash:[5,3] },
-      { label: 'B004OJBGYC', data: [0.0,5.9,4.2,2.2,4.4,2.9,2.2,2.6,3.7,4.2,13.3,7.2],            borderColor:'#d97706', borderWidth:2.0, borderDash:[5,3] },
-      { label: 'B09372CB92', data: [0.9,0.6,0.8,0.8,1.9,0.9,0.1,0.0,0.5,0.2,0.0,0.4],              borderColor:'#64748b', borderWidth:1.5, borderDash:[5,3], hidden:true }
+      { label: 'Zero In',      data: [100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,100.0,14.9,18.1,22.9], borderColor:'#2563eb', borderWidth:2.5 },
+      { label: 'Super Ninja',  data: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,84.7,79.5,68.7],                   borderColor:'#7c3aed', borderWidth:2.5 },
+      { label: 'B0DWTR65JD',   data: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.4,0.9,0.6],                     borderColor:'#64748b', borderWidth:1.5, borderDash:[5,3], hidden:true },
+      { label: 'B0GN89ZP6D',   data: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.5,7.8],                     borderColor:'#d97706', borderWidth:1.5, borderDash:[5,3], hidden:true }
     ];
     ds.forEach(function(d) { d.backgroundColor='transparent'; d.tension=0.3; d.pointRadius=3; d.pointHoverRadius=5; });
     var el = document.getElementById('msBrandShareLine');
@@ -1343,7 +1343,7 @@ vocFilterReviews();
 // ── Seasonality Index Chart ──
 (function() {
   var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var idx = [0.14, 0.17, 0.12, 0.30, 0.99, 1.17, 3.67, 2.99, 1.57, 0.48, 0.25, 0.16];
+  var idx = [0.54, 0.48, 0.25, 0.36, 0.98, 1.12, 3.30, 2.82, 1.47, 0.36, 0.19, 0.13];
   var colors = idx.map(function(v) { return v >= 1.3 ? '#16a34a' : v <= 0.6 ? '#dc2626' : '#2563eb'; });
   var el = document.getElementById('msSeasonChart');
   if (el) {
