@@ -536,6 +536,26 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="note" style="margin-top:14px">Brand unit share within each pack size. Lure segment only, 12M. 6-pack and 12-pack are 100% Super Ninja (not shown separately).</div>
 </div>
 
+<!-- PACK SIZE × BRAND SHARE PIES — REVENUE -->
+<div class="card">
+  <h3>Brand Share by Pack Size — Lure (Revenue, 12M)</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">1-pack &middot; £51.2K</p>
+      <div class="cw" style="height:260px"><canvas id="msPkBrandRev1"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">2-pack &middot; £493.4K</p>
+      <div class="cw" style="height:260px"><canvas id="msPkBrandRev2"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">4-pack &middot; £326.8K</p>
+      <div class="cw" style="height:260px"><canvas id="msPkBrandRev4"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Brand revenue share within each pack size. Lure segment only, 12M. Revenue = units × ASIN list price. 6-pack (£145.3K) and 12-pack (£56.0K) are 100% Super Ninja.</div>
+</div>
+
 <div id="ms_insights" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px"></div>
 
 <div class="g2" style="align-items:start">
@@ -1164,6 +1184,11 @@ vocFilterReviews();
   makePkBrandPie('msPkBrand1', ['Super Ninja','Zero In'], [5376, 2880]);
   makePkBrandPie('msPkBrand2', ['Super Ninja','Zero In'], [39744, 15336]);
   makePkBrandPie('msPkBrand4', ['Super Ninja','Zero In'], [19248, 1452]);
+
+  // Revenue pies per pack size
+  makePkBrandPie('msPkBrandRev1', ['Super Ninja','Zero In'], [37552, 13638]);
+  makePkBrandPie('msPkBrandRev2', ['Super Ninja','Zero In'], [394551, 98868]);
+  makePkBrandPie('msPkBrandRev4', ['Super Ninja','Zero In'], [303904, 22870]);
 
   // ── Insights ──
   var insEl = document.getElementById('ms_insights');
